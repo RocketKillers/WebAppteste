@@ -35,15 +35,6 @@
       "cidade": "chique-chique",
       "uf": "BA",
       "cep": "10215-200"
-    },
-    {
-      "id": "b0aa",
-      "cpf": "777.777.777-77",
-      "nome": "teste de cadastro",
-      "telefone": "1865235-5262",
-      "cidade": "poepo",
-      "uf": "AC",
-      "cep": "13256-652"
     }
   ],
   "fornecedores": [],
