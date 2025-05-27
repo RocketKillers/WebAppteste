@@ -1,6 +1,6 @@
-const { urlToHttpOptions } = require("url");
 
-const urlBase = `http://localhost:4000/clientes`;
+const urlBase = 'http://localhost:4000/clientes';
+
 const formulario = document.getElementById("formCadCliente");
 let listaDeClientes = [];
 
@@ -90,11 +90,11 @@ function excluirCliente(cpf){
 
 function obterDadosClientes(){
     //enviar uma requisição para a fonte servidora
-    fetch(urlBase,{
+    fetch(urlBase, {
         method:"GET"
     })
     .then((resposta)=>{
-        if(respost.ok){
+        if (resposta.ok){
             return resposta.json();
         }
     })
@@ -103,30 +103,34 @@ function obterDadosClientes(){
         mostrarTabelaClientes();
     })
     .catch((erro)=>{
-        alert("Erro ao tentar recuperar clientes do servidor!")
+        alert("Erro ao tentar recuperar clientes do servidor!");
     });
 }
 
+
 function cadastrarCliente(cliente){
+
     fetch(urlBase, {
-        "method":"POST",
-        "headers": {
-            "Content-Type":"application/json",
-        },
-        "body": JSON.stringify(cliente)
+       "method":"POST",
+       "headers": {
+          "Content-Type":"application/json",
+       },
+       "body": JSON.stringify(cliente)
     })
     .then((resposta)=>{
         if(resposta.ok){
             return resposta.json();
         }
     })
-    .then((dados)=>{
-        alert(`Cliente incluido com sucesso! ID:${dados.id}`);
+    .then((dados) =>{
+        alert(`Cliente incluído com sucesso! ID:${dados.id}`);
+        listaDeClientes.push(cliente);
         mostrarTabelaClientes();
     })
     .catch((erro)=>{
-        alert("Erro ao cadastrar o cliente: " + erro);
+        alert("Erro ao cadastrar o cliente:" + erro);
     });
+
 }
 
 obterDadosClientes();
